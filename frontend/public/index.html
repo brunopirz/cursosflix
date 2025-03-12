@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cursos Flix - Sua plataforma de aprimoramento online</title>
+    <!-- Tailwind CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.7/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .fade-in { animation: fadeIn 2s ease-in-out; }
+      .overlay {
+        background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.7) 100%);
+      }
+    </style>
+  </head>
+  <body class="bg-black text-white">
+    <!-- Background com vídeo ou imagem -->
+    <div class="absolute inset-0 overflow-hidden">
+      <video autoplay loop muted class="w-full h-full object-cover">
+        <source src="background.mp4" type="video/mp4" />
+        <img src="background.jpg" alt="Background" />
+      </video>
+      <div class="absolute inset-0 overlay"></div>
+    </div>
+    <!-- Conteúdo principal -->
+    <div class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center">
+      <img src="logo.png" alt="Cursos Flix Logo" class="w-40 mb-8 fade-in" />
+      <h1 class="text-4xl sm:text-6xl font-bold mb-4">Transforme seu futuro com o Cursos Flix!</h1>
+      <p class="text-xl sm:text-2xl mb-8">Acesso ilimitado a milhares de cursos online por apenas R$ 47/mês. Assine agora e comece a aprender!</p>
+      <a href="/signup" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full mb-4 transition duration-300 transform hover:scale-105">Experimente grátis por 7 dias</a>
+      <div class="flex space-x-4 mb-8">
+        <a href="/signup" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300 transform hover:scale-105">Assinar Agora</a>
+        <a href="/login" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 transform hover:scale-105">Entrar</a>
+      </div>
+      <p class="text-sm sm:text-lg">Cursos novos toda semana | Aprenda no seu ritmo | Assista onde e quando quiser</p>
+    </div>
+  </body>
+</html>
