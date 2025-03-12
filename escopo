@@ -1,0 +1,32 @@
+cursos-flix/
+├── backend/
+│   ├── config/
+│   │     └── db.js             // Conexão com PostgreSQL
+│   ├── controllers/
+│   │     ├── authController.js // Registro e login de usuários
+│   │     ├── courseController.js  // CRUD de cursos
+│   │     └── paymentController.js // Integração com Stripe
+│   ├── middleware/
+│   │     └── auth.js           // Proteção de rotas com JWT
+│   ├── models/
+│   │     ├── User.js           // Operações com usuários
+│   │     └── Course.js         // Operações com cursos
+│   ├── server.js               // Inicialização do Express
+│   ├── package.json            // Dependências do backend
+│   └── Dockerfile              // Dockerfile para backend
+├── frontend/
+│   ├── public/
+│   │     └── index.html        // Landing page (inspirada na Netflix)
+│   ├── src/
+│   │     ├── components/
+│   │     │      ├── LandingPage.js
+│   │     │      ├── Signup.js
+│   │     │      └── Login.js
+│   │     ├── styles/
+│   │     │      └── tailwind.css    // Configuração do Tailwind
+│   │     ├── App.js            // Configuração das rotas
+│   │     └── index.js          // Ponto de entrada da aplicação React
+│   ├── package.json            // Dependências do frontend
+│   └── Dockerfile              // Dockerfile para frontend
+├── docker-compose.yml          // Orquestração dos containers
+└── .env                        // Variáveis de ambiente (guardem estas credenciais com segurança)
