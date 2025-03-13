@@ -1,8 +1,7 @@
-version: '3.8'
+version: '3.7'
 services:
   postgres:
     image: postgres:15
-    container_name: postgres
     restart: always
     environment:
       POSTGRES_USER: ${DB_USER}
@@ -17,10 +16,10 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+      
   backend:
     build: ./backend
-    container_name: cursos-flix-backend
-    restart: unless-stopped
+    restart: always
     environment:
       - PORT=${PORT}
       - DB_HOST=${DB_HOST}
@@ -37,15 +36,16 @@ services:
       - "5000:5000"
     depends_on:
       - postgres
+      
   frontend:
     build: ./frontend
-    container_name: cursos-flix-frontend
-    restart: unless-stopped
+    restart: always
     environment:
       - NODE_ENV=${NODE_ENV}
     ports:
       - "3000:80"
     depends_on:
       - backend
+      
 volumes:
   pgdata:
