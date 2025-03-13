@@ -1,14 +1,12 @@
 version: '3.8'
-
 services:
   postgres:
     image: postgres:15
     container_name: postgres
-    restart: unless-stopped
     environment:
-      # Usuário administrativo do PostgreSQL. Guarde esta credencial em local seguro!
+      # Usuário administrador do PostgreSQL – guarde essa credencial com segurança!
       POSTGRES_USER: "cursosflix_user"
-      # Senha forte para o usuário. Guarde esta credencial em local seguro!
+      # Senha forte para o usuário – guarde essa credencial com segurança!
       POSTGRES_PASSWORD: "StrongP@ssw0rd_2025!"
       # Nome do banco de dados a ser criado
       POSTGRES_DB: "cursosflix"
