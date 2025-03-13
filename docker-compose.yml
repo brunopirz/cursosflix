@@ -1,14 +1,14 @@
 version: '3.7'
+
 services:
   postgres:
     image: postgres:15
-    restart: always
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
     ports:
-      - "5432:5432"
+      - "5432:5432"  # Altere para "5433:5432" se necessário
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -16,14 +16,12 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-      
- backend:
-    image: meu-backend  # Nome da imagem construída
-    restart: always
+
+  backend:
+    image: meu-backend  # Imagem pré-construída
     environment:
       - PORT=${PORT}
       - DB_HOST=${DB_HOST}
-      - DB_PORT=${DB_PORT}
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
@@ -36,16 +34,15 @@ services:
       - "5000:5000"
     depends_on:
       - postgres
-      
+
   frontend:
-    image: meu-frontend  # Nome da imagem construída
-    restart: always
+    image: meu-frontend  # Imagem pré-construída
     environment:
       - NODE_ENV=${NODE_ENV}
     ports:
       - "3000:80"
     depends_on:
       - backend
-      
+
 volumes:
   pgdata:
