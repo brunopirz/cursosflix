@@ -17,8 +17,8 @@ services:
       timeout: 5s
       retries: 5
       
-  backend:
-    build: ./backend
+ backend:
+    image: meu-backend  # Nome da imagem construída
     restart: always
     environment:
       - PORT=${PORT}
@@ -38,7 +38,7 @@ services:
       - postgres
       
   frontend:
-    build: ./frontend
+    image: meu-frontend  # Nome da imagem construída
     restart: always
     environment:
       - NODE_ENV=${NODE_ENV}
