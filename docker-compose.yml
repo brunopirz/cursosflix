@@ -17,7 +17,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
   backend:
     build: ./backend
     container_name: cursos-flix-backend
@@ -38,7 +37,6 @@ services:
       - "5000:5000"
     depends_on:
       - postgres
-
   frontend:
     build: ./frontend
     container_name: cursos-flix-frontend
@@ -49,6 +47,5 @@ services:
       - "3000:80"
     depends_on:
       - backend
-
 volumes:
   pgdata:
